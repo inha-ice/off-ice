@@ -21,11 +21,14 @@ defmodule Office.MixProject do
 
   defp deps do
     [
+      {:ecto, "~> 3.9"},
+      {:ecto_sql, "~> 3.9"},
       {:jason, "~> 1.4"},
       {:phoenix, "~> 1.6"},
       {:phoenix_live_reload, "~> 1.4", only: :dev},
       {:phoenix_live_view, "~> 0.18.7"},
-      {:plug_cowboy, "~> 2.6"}
+      {:plug_cowboy, "~> 2.6"},
+      {:postgrex, "~> 0.16.5"}
     ]
   end
 end
