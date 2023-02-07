@@ -25,8 +25,9 @@ defmodule Office.MixProject do
       {:ecto_sql, "~> 3.9"},
       {:jason, "~> 1.4"},
       {:phoenix, "~> 1.6"},
+      {:phoenix_html, "~> 3.2"},
       {:phoenix_live_reload, "~> 1.4", only: :dev},
-      {:phoenix_live_view, "~> 0.18.7"},
+      {:phoenix_live_view, "~> 0.18.11"},
       {:plug_cowboy, "~> 2.6"},
       {:postgrex, "~> 0.16.5"}
     ]
