@@ -8,6 +8,7 @@ defmodule Office.MixProject do
       elixir: "~> 1.12",
       compilers: Mix.compilers(),
       start_permanent: Mix.env() == :prod,
+      aliases: aliases(),
       deps: deps()
     ]
   end
@@ -23,6 +24,7 @@ defmodule Office.MixProject do
     [
       {:ecto, "~> 3.9"},
       {:ecto_sql, "~> 3.9"},
+      {:esbuild, "~> 0.6.0"},
       {:jason, "~> 1.4"},
       {:phoenix, "~> 1.6"},
       {:phoenix_html, "~> 3.2"},
@@ -30,6 +32,16 @@ defmodule Office.MixProject do
       {:phoenix_live_view, "~> 0.18.11"},
       {:plug_cowboy, "~> 2.6"},
       {:postgrex, "~> 0.16.5"}
+    ]
+  end
+
+  defp aliases do
+    [
+      setup: ["deps.get", "ecto.setup"],
+      "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
+      "ecto.reset": ["ecto.drop", "ecto.setup"],
+      test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
+      "assets.deploy": ["esbuild default --minify", "phx.digest"]
     ]
   end
 end
